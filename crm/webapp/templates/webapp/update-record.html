@@ -1,0 +1,26 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    
+    <div class="container bg-light shadow-md p-5 form-layout">
+        <h3> Update record </h3>
+        <h6> Update the details for your existing record... </h6>
+        <hr><br>
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{ form | crispy }} <!-- Add django crispy styling -->
+            <br>
+            <button type="submit" class="btn btn-primary">
+                Update record &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+            </button>
+            &nbsp; 
+            <a href="{% url 'dashboard' %}" class="btn btn-primary">
+                Cancel &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </a>
+        </form>
+    </div>
+
+{% endblock %}
+
